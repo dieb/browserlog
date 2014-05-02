@@ -9,4 +9,5 @@ gem 'coveralls', require: false
 
 group :test do
   gem 'rubocop', '>= 0.19.0'
+  gem 'sqlite3'
 end
