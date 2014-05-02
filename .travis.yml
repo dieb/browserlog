@@ -7,5 +7,3 @@ rvm:
   - rbx-2
   - ruby-head
 language: ruby
-notifications:
-  irc: irc.freenode.org#tadev
