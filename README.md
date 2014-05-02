@@ -26,7 +26,7 @@ gem 'browserlog', '~> 0.0.1', git: 'https://github.com/dieb/browserlog.git'
 Browserlog is bundled as a Rails engine. Mount it on `config/routes.rb`.
 
 ```ruby
-MyApplication::Application.routes.draw do
+MyApp::Application.routes.draw do
   mount Browserlog::Engine => '/logs', as: 'browserlog_engine'
 end
 ```

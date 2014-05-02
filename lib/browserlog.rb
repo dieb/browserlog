@@ -1,4 +1,4 @@
-require "browserlog/engine"
+require 'browserlog/engine'
 
 module Browserlog
 end

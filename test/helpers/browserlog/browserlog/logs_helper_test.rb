@@ -1,6 +1,6 @@
 require 'test_helper'
 
 module Browserlog
-  class Browserlog::LogsHelperTest < ActionView::TestCase
+  class LogsHelperTest < ActionView::TestCase
   end
 end

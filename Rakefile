@@ -14,10 +14,8 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
+APP_RAKEFILE = File.expand_path('../test/dummy/Rakefile', __FILE__)
 load 'rails/tasks/engine.rake'
-
-
 
 Bundler::GemHelper.install_tasks
 
@@ -30,5 +28,14 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
+begin
+  require 'rubocop/rake_task'
+  Rubocop::RakeTask.new
+rescue LoadError
+  desc 'Run RuboCop'
+  task :rubocop do
+    $stderr.puts 'Rubocop is disabled'
+  end
+end
 
-task default: :test
+task default: [:spec, :rubocop]

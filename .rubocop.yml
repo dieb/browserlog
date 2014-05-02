@@ -1,0 +1,27 @@
+
+AllCops:
+  Include:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'browserlog.gemspec'
+
+ParameterLists:
+  Max: 3
+  CountKeywordArgs: true
+
+MethodLength:
+  CountComments: false
+  Max: 10
+
+ClassLength:
+  CountComments: false
+  Max: 200
+
+CyclomaticComplexity:
+  Max: 6
+
+BlockNesting:
+  Max: 3
+
+Documentation:
+  Enabled: false

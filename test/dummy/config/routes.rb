@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-
-  mount Browserlog::Engine => "/browserlog"
+  mount Browserlog::Engine => '/logs'
 end

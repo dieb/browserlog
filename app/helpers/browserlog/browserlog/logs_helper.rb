@@ -1,4 +1,4 @@
 module Browserlog
-  module Browserlog::LogsHelper
+  module LogsHelper
   end
 end

@@ -1,7 +1,7 @@
-require_dependency "browserlog/browserlog/application_controller"
+require_dependency 'browserlog/browserlog/application_controller'
 
 module Browserlog
-  class Browserlog::LogsController < ApplicationController
+  class LogsController < ApplicationController
     INTERVAL = 5.seconds
 
     include ActionController::Live
@@ -13,14 +13,8 @@ module Browserlog
 
     def changes
       response.headers['Content-Type'] = 'text/event-stream'
-      
       running = true
-
-      at_exit do
-        puts "Exiting changes loop"
-        running = false
-      end
-
+      at_exit { running = false }
       while running
         changes = @differ.latest_changes
         response.stream.write JSON.dump(changes) if changes.size > 0
@@ -33,7 +27,10 @@ module Browserlog
     private
 
     def set_starting_point
-      @differ = Browserlog::Logdiff.new(file: Rails.root.join("log/#{Rails.env}.log"), buffer_size: INTERVAL * 100)
+      @differ = Browserlog::Logdiff.new(
+        file: Rails.root.join("log/#{Rails.env}.log"),
+        buffer_size: INTERVAL * 100
+      )
     end
   end
 end
