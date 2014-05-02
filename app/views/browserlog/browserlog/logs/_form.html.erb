@@ -1,0 +1,17 @@
+<%= form_for(@browserlog_log) do |f| %>
+  <% if @browserlog_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@browserlog_log.errors.count, "error") %> prohibited this browserlog_log from being saved:</h2>
+
+      <ul>
+      <% @browserlog_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
