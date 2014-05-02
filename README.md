@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/dieb/browserlog.svg)][travis]
 [![Dependency Status](https://img.shields.io/gemnasium/dieb/browserlog.svg)][gemnasium]
 [![Code Climate](https://img.shields.io/codeclimate/github/dieb/browserlog.svg)][codeclimate]
-[![Coverage Status](https://img.shields.io/coveralls/dieb/browserlog.svg)][coveralls]
+[![Coverage Status](https://coveralls.io/repos/dieb/browserlog/badge.png?branch=master)](https://coveralls.io/r/dieb/browserlog?branch=master)
 
 [travis]: http://travis-ci.org/dieb/browserlog
 [gemnasium]: https://gemnasium.com/dieb/browserlog
