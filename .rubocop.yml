@@ -29,3 +29,6 @@ Documentation:
 
 RescueException:
   Enabled: false
+
+Encoding:
+  Enabled: false
