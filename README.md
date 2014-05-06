@@ -12,6 +12,8 @@
 
 Browserlog is a live web log viewer for rails apps.
 
+![Screenshot](https://www.dropbox.com/s/bantz8fsc0416p7/Screenshot%202014-05-05%2023.40.20.png "Screenshot")
+
 ## Features
 * Auto-refresh
 
