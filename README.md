@@ -1,6 +1,6 @@
 # Browserlog
 
-[![Build Status](https://img.shields.io/travis/dieb/browserlog.svg)][travis]
+[![Build Status](https://travis-ci.org/dieb/browserlog.svg?branch=master)](https://travis-ci.org/dieb/browserlog)
 [![Dependency Status](https://img.shields.io/gemnasium/dieb/browserlog.svg)][gemnasium]
 [![Code Climate](https://img.shields.io/codeclimate/github/dieb/browserlog.svg)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/dieb/browserlog/badge.png?branch=master)](https://coveralls.io/r/dieb/browserlog?branch=master)
