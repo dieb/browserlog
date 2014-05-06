@@ -32,3 +32,16 @@ RescueException:
 
 Encoding:
   Enabled: false
+
+CollectionMethods:
+  PreferredMethods:
+    map:      'collect'
+    reduce:   'inject'
+    find:     'detect'
+    find_all: 'select'
+
+RegexpLiteral:
+  Enabled: false
+
+LineLength:
+  Enabled: false

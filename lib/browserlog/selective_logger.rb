@@ -1,5 +1,5 @@
 class SelectiveLogger < Rails::Rack::Logger
-  SKIP_PATHS = %w(/changes.json /browserlog/).freeze
+  SKIP_PATHS = %w(/changes.json /browserlog/ jquery /logs/).freeze
 
   protected
 

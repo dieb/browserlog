@@ -8,13 +8,12 @@ module Browserlog
     end
 
     def changes
-      reader = Browserlog::LogReader.new
       lines, last_line_number = reader.read(offset: params[:currentLine].to_i)
 
       respond_to do |format|
         format.json do
           render json: {
-            lines: lines,
+            lines: lines.map! { |line| colorizer.colorize_line(line) } ,
             last_line_number: last_line_number
           }
         end
@@ -22,6 +21,14 @@ module Browserlog
     end
 
     private
+
+    def reader
+      Browserlog::LogReader.new
+    end
+
+    def colorizer
+      Browserlog::LogColorize.new
+    end
 
     def check_env
       fail unless %w(test development production).include?(params[:env])
