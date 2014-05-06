@@ -1,5 +1,5 @@
 class LogFeed
-  POLL_PERIOD: 500
+  POLL_PERIOD: 1500
 
   constructor: ->
     @currentLine = -1
