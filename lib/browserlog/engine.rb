@@ -8,7 +8,7 @@ module Browserlog
       g.helper false
     end
 
-    initializer "browserlog.swap_logger" do |app|
+    initializer 'browserlog.swap_logger' do |app|
       app.middleware.swap Rails::Rack::Logger, SelectiveLogger
     end
 

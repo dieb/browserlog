@@ -3,6 +3,8 @@ AllCops:
     - 'Gemfile'
     - '**/Rakefile'
     - 'browserlog.gemspec'
+  Exclude:
+  - 'spec/dummy/db/schema.rb'
 
 ParameterLists:
   Max: 3
@@ -23,4 +25,7 @@ BlockNesting:
   Max: 3
 
 Documentation:
+  Enabled: false
+
+RescueException:
   Enabled: false

@@ -1,6 +1,6 @@
 module Browserlog
   class LogReader
-    def read options = {}
+    def read(options = {})
       offset = options[:offset] || -1
       limit = options[:limit] || 25
       amount = [limit, remaining_lines(offset)].min
@@ -20,28 +20,16 @@ module Browserlog
       (offset == -1) ? num_lines : (num_lines - offset)
     end
 
-    def num_lines
-      `wc -l #{log_path}`.split.first.to_i
-    end
-
     def log_path
       Rails.root.join("log/#{Rails.env}.log")
     end
 
-    def file
-      @file ||= File.new log_path
+    def num_lines
+      `wc -l #{log_path}`.split.first.to_i
     end
 
     def readlines(amount)
       `tail -n #{amount} #{log_path}`.split(/\n/)
-    end
-
-    def with_seek(position, &block)
-      puts "Seeking to #{position}"
-      file.seek(position)
-      retval = block.call
-      file.seek(0)
-      retval
     end
   end
 end

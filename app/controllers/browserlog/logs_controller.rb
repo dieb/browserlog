@@ -1,13 +1,13 @@
 module Browserlog
   class LogsController < ApplicationController
+    before_filter :check_env
+
     def index
-      raise unless ['test', 'development', 'production'].include?(params[:env])
       @filename = "#{params[:env]}.log"
       @filepath = Rails.root.join("log/#{@filename}")
     end
 
     def changes
-      raise unless ['test', 'development', 'production'].include?(params[:env])
       reader = Browserlog::LogReader.new
       lines, last_line_number = reader.read(offset: params[:currentLine].to_i)
 
@@ -19,6 +19,12 @@ module Browserlog
           }
         end
       end
+    end
+
+    private
+
+    def check_env
+      fail unless %w(test development production).include?(params[:env])
     end
   end
 end
