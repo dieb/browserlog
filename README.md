@@ -27,9 +27,11 @@ Browserlog is bundled as a Rails engine. Mount it on `config/routes.rb`.
 
 ```ruby
 MyApp::Application.routes.draw do
-  mount Browserlog::Engine => '/logs', as: 'browserlog_engine'
+  mount Browserlog::Engine => '/logs'
 end
 ```
+
+With this setup 'logs/development', 'logs/production' and 'logs/test' are automatically available.
 
 ## Supported Rails Versions
 * Rails ~> 4.1.0

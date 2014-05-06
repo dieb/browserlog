@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+  background-color: #111;
+  color: #bbb;
+}
+
+body {
+  font-family: Consolas, Courier New, Courier, monospace;
+  font-size:1em;
+  font-size: 15px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+#lines {
+  display: block;
+  overflow-y: auto;
+  height: 90%;
+  margin: 0;
+  padding: 12px;
+
+  li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    margin-top: 2px;
+  }
+}
