@@ -12,8 +12,6 @@
 
 Browserlog is a live web log viewer for rails apps.
 
-## Design
-
 ![Screenshot dark theme](https://dl.dropboxusercontent.com/u/27144161/browserlog-dark.png "Screenshot dark theme")
 
 ![Screenshot light theme](https://dl.dropboxusercontent.com/u/27144161/browserlog-light.png "Screenshot light theme")
