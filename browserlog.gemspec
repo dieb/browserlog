@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
                 'README.rdoc']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '> 3.2'
+  s.add_dependency 'rails', ['>= 3', '< 5']
   s.add_dependency 'jquery-rails'
   s.add_development_dependency 'rspec-rails'
 end
