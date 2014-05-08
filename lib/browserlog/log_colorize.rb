@@ -25,7 +25,7 @@ module Browserlog
     end
 
     def space
-      "&nbsp;&nbsp;"
+      '&nbsp;&nbsp;'
     end
 
     def colorize_request(line)
