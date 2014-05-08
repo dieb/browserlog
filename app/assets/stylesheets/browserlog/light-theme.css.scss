@@ -1,0 +1,82 @@
+$blue: #4687b8;
+$purple: #606aa1;
+$green: #48b685;
+$orange: #da564a;
+
+$default: #585856;
+$background: #fff;
+
+$method: $purple;
+$path: $blue;
+$ip: $default;
+$date: $default;
+
+$controller: $orange;
+$action: $orange;
+$format: $purple;
+
+$template-name: $orange;
+$rendering-time: $blue;
+
+$total-time: $blue;
+$status-success: $green;
+$status-failure: red;
+
+[data-theme='light'] {
+  color: $default;
+  background-color: $background;
+
+  // request
+  .method {
+    color: $method;
+  }
+
+  .path {
+    color: $path;
+  }
+
+  .ip {
+    color: $ip;
+  }
+
+  .date {
+    color: $date;
+  }
+
+  // controller
+  .controller {
+    color: $controller;
+  }
+
+  .action {
+    color: $action;
+  }
+
+  .format {
+    color: $format;
+  }
+
+  // render
+  .template-name {
+    color: $template-name;
+  }
+
+  .rendering-time {
+    color: $rendering-time;
+  }
+
+  // complete
+  .total-time {
+    color: $total-time;
+  }
+
+  .status {
+    &.success {
+      color: $status-success;
+    }
+
+    &.error {
+      color: $status-failure;
+    }
+  }
+}

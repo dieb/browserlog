@@ -6,9 +6,16 @@
   <%= javascript_include_tag "browserlog/application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-theme="light">
 
 <%= yield %>
+
+  <button class="resume-scroll-btn hidden">Resume</button>
+
+  <select class="theme-switch">
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
+  </select>
 
 </body>
 </html>

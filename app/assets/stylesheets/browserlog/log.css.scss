@@ -1,8 +1,3 @@
-html, body {
-  color: #bbb;
-  background-color: #111;
-}
-
 body {
   margin: 0;
   position: relative;
@@ -30,4 +25,14 @@ body {
   &.hidden {
     display: none;
   }
+}
+
+.theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px
+}
+
+.space {
+  width: 20px;
 }

@@ -1,6 +1,6 @@
 module Browserlog
   class LogColorize
-    REXP_REQUEST =    /^Started (?<method>\w+) "(?<path>[\w\/\?\&\=\.]+)" for (?<ip>[\d\.]+) at (?<date>[\w:\-\s]+)$/
+    REXP_REQUEST    = /^Started (?<method>\w+) "(?<path>[\w\/\?\&\=\.]+)" for (?<ip>[\d\.]+) at (?<date>[\w:\-\s]+)$/
     REXP_CONTROLLER = /^Processing by (?<controller>[\w\:]+)#(?<action>\w+) as (?<format>\w+)$/
     REXP_RENDER =     /^\s*Rendered (?<path>.*\/)(?<template_name>\w+\.html\.\w+) \((?<rendering_time>[\d+\.]+ms)\)$/
     REXP_COMPLETE =   /^Completed (?<status>\d+\s\w+) in (?<total_time>[\d+\.]+ms) (?<last_bit>.*)$/
@@ -20,43 +20,43 @@ module Browserlog
 
     private
 
-    def bold(item)
-      "<span style='font-weight: bold'>#{item}</span>"
+    def span(item, classname)
+      "<span class='#{classname}'>#{item}</span>"
     end
 
-    def color(item, color)
-      "<span style='color: #{color}'>#{item}</span>"
+    def space
+      "&nbsp;&nbsp;"
     end
 
     def colorize_request(line)
       data = regex_parse(line.match(REXP_REQUEST))
-      method = color(data[:method], '#999')
-      path = color(data[:path], 'green')
-      ip = color(data[:ip], '#888')
-      date = color(data[:date], '#777')
+      method = span(data[:method], 'method')
+      path = span(data[:path], 'path')
+      ip = span(data[:ip], 'ip')
+      date = span(data[:date], 'date')
       "Started #{method} \"#{path}\" for #{ip} at #{date}"
     end
 
     def colorize_controller(line)
       data = regex_parse(line.match(REXP_CONTROLLER))
-      controller = color(data[:controller], 'magenta')
-      action = color(data[:action], 'magenta')
-      format = color(data[:format], '#aaa')
+      controller = span(data[:controller], 'controller')
+      action = span(data[:action], 'action')
+      format = span(data[:format], 'format')
       "Processing by #{controller}##{action} as #{format}"
     end
 
     def colorize_render(line)
       data = regex_parse(line.match(REXP_RENDER))
       path = data[:path]
-      template_name = color(data[:template_name], '#aaa')
-      rendering_time = color(data[:rendering_time], '#aaa')
-      "Rendered #{path}#{template_name} (#{rendering_time})"
+      template_name = span(data[:template_name], 'template-name')
+      rendering_time = span(data[:rendering_time], 'rendering-time')
+      "#{space}Rendered #{path}#{template_name} (#{rendering_time})"
     end
 
     def colorize_complete(line)
       data = regex_parse(line.match(REXP_COMPLETE))
-      status = color(data[:status], data[:status] =~ /^2/ ? 'green' : 'red')
-      total_time = color(data[:total_time], '#888')
+      status = span(data[:status], data[:status] =~ /^2/ ? 'status success' : 'status failure')
+      total_time = span(data[:total_time], 'total-time')
       "Completed #{status} in #{total_time} #{data[:last_bit]}"
     end
 

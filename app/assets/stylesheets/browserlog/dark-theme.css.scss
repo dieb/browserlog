@@ -1,0 +1,83 @@
+$cyan: #66D9EF;
+$purple: #AE81FF;
+$yellow: #E6DB74;
+$green: #A6E22E;
+$magenta-like: #F92672;
+
+$default: #fff;
+$background: #272822;
+
+$method: $purple;
+$path: $yellow;
+$ip: $default;
+$date: $default;
+
+$controller: $magenta-like;
+$action: $magenta-like;
+$format: $purple;
+
+$template-name: #aaa;
+$rendering-time: #aaa;
+
+$total-time: $cyan;
+$status-success: $green;
+$status-failure: red;
+
+[data-theme='dark'] {
+  color: $default;
+  background-color: $background;
+
+  // request
+  .method {
+    color: $method;
+  }
+
+  .path {
+    color: $path;
+  }
+
+  .ip {
+    color: $ip;
+  }
+
+  .date {
+    color: $date;
+  }
+
+  // controller
+  .controller {
+    color: $controller;
+  }
+
+  .action {
+    color: $action;
+  }
+
+  .format {
+    color: $format;
+  }
+
+  // render
+  .template-name {
+    color: $template-name;
+  }
+
+  .rendering-time {
+    color: $rendering-time;
+  }
+
+  // complete
+  .total-time {
+    color: $total-time;
+  }
+
+  .status {
+    &.success {
+      color: $status-success;
+    }
+
+    &.error {
+      color: $status-failure;
+    }
+  }
+}
