@@ -1,20 +1,58 @@
+class LogView
+
+  constructor: ->
+    @lines = $('#lines')
+    @body = $('body')
+    @resumeButton = $('.resume-scroll-btn')
+    @autoScroll = true
+    @attachEvents()
+
+  attachEvents: ->
+    window.onscroll = @disableAutoScroll
+    @body.on('click', '.resume-scroll-btn', @enableAutoScroll)
+
+  update: (lines) ->
+    @appendLines(lines)
+    @updateScroll() if @autoScroll
+
+  appendLines: (lines) ->
+    linesString = ''
+    linesString += "<li>#{line}</li>" for line in lines
+    @lines.append(linesString)
+
+  disableAutoScroll: (e) =>
+    if (e.timeStamp > @timestamp) and @hasScroll() and @body.scrollTop() > 0
+      @autoScroll = false
+      @resumeButton.removeClass('hidden')
+
+  enableAutoScroll: =>
+    @autoScroll = true
+    @resumeButton.addClass('hidden')
+    @updateScroll()
+
+  updateScroll: ->
+    @body.scrollTop(@body.prop('scrollHeight'))
+    @timestamp = (new Date()).getTime()
+
+  hasScroll: ->
+    @body.height() == @body.prop('scrollHeight')
+
+
 class LogFeed
   POLL_PERIOD: 1500
 
-  constructor: ->
+  constructor: (listener) ->
+    @listener = listener
     @currentLine = -1
-    @lines = $('#lines')
 
   getLines: =>
-    $.get(window.location.href + '/changes.json',
-      {currentLine: @currentLine},
-      this.getLinesSuccess
-    )
-    .fail(this.getLinesError)
-    .always(this.getLinesComplete)
+    $.get(window.location.href + '/changes.json', {currentLine: @currentLine})
+    .done(@getLinesSuccess)
+    .fail(@getLinesError)
+    .always(@getLinesComplete)
 
   getLinesSuccess: (data, status, xhr) =>
-    this.displayLines data.lines
+    @listener.update(data.lines)
     @currentLine = data.last_line_number
 
   getLinesError: (data, status, err) =>
@@ -22,26 +60,16 @@ class LogFeed
     # TODO
 
   getLinesComplete: (xhr, status) =>
-    this.reschedule()
-
-  displayLines: (lines) ->
-    this.appendLine(line) for line in lines
-    @lines.scrollTop @lines.prop('scrollHeight')
-
-  appendLine: (line) ->
-    $("<li>#{line}</li>").appendTo @lines
+    @reschedule()
 
   start: ->
-    setTimeout this.getLines, 0
+    setTimeout @getLines, 0
 
   reschedule: ->
-    setTimeout this.getLines, @POLL_PERIOD
+    setTimeout @getLines, @POLL_PERIOD
 
-onReady = -> 
-  logfeed = new LogFeed
+$ ->
+  logfeed = new LogFeed(new LogView)
   logfeed.start()
 
   console.log "Started fetching logs"
-
-$(document).ready onReady
-$(document).on 'page:load', onReady

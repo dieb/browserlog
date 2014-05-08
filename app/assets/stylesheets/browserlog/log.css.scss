@@ -1,30 +1,33 @@
 html, body {
-  height: 100%;
-  min-height: 100%;
+  color: #bbb;
   background-color: #111;
-  color: #666;
 }
 
 body {
-  font-family: Consolas, Courier New, Courier, monospace;
-  font-size:1em;
-  font-size: 15px;
-  position: relative;
   margin: 0;
-  padding: 0;
+  position: relative;
+  font: {
+    family: Consolas, Courier New, Courier, monospace;
+    size: 1em;
+  }
 }
 
 #lines {
-  display: block;
-  overflow-y: auto;
-  height: 90%;
   margin: 0;
   padding: 12px;
 
   li {
-    display: block;
+    margin: 2px 0;
     list-style: none;
-    margin: 0;
-    margin-top: 2px;
+  }
+}
+
+.resume-scroll-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  &.hidden {
+    display: none;
   }
 }
