@@ -13,11 +13,15 @@ $ip: $default;
 $date: $default;
 
 $controller: $magenta-like;
-$action: $magenta-like;
+$action: $yellow;
 $format: $purple;
 
-$template-name: #aaa;
-$rendering-time: #aaa;
+$template-name: $yellow;
+$layout-name: $purple;
+$rendering-time: $cyan;
+
+$model-load: $magenta-like;
+$sql-query: $default;
 
 $total-time: $cyan;
 $status-success: $green;
@@ -62,8 +66,21 @@ $status-failure: red;
     color: $template-name;
   }
 
+  .layout-name {
+    color: $layout-name;
+  }
+
   .rendering-time {
     color: $rendering-time;
+  }
+
+  // load/sql
+  .model-load {
+    color: $model-load;
+  }
+
+  .sql-query {
+    color: $sql-query;
   }
 
   // complete

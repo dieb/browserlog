@@ -16,7 +16,11 @@ $action: $orange;
 $format: $purple;
 
 $template-name: $orange;
+$layout-name: $purple;
 $rendering-time: $blue;
+
+$model-load: $orange;
+$sql-query: $default;
 
 $total-time: $blue;
 $status-success: $green;
@@ -61,8 +65,21 @@ $status-failure: red;
     color: $template-name;
   }
 
+  .layout-name {
+    color: $layout-name;
+  }
+
   .rendering-time {
     color: $rendering-time;
+  }
+
+  // load/sql
+  .model-load {
+    color: $model-load;
+  }
+
+  .sql-query {
+    color: $sql-query;
   }
 
   // complete
