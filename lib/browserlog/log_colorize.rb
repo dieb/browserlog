@@ -9,16 +9,7 @@ module Browserlog
 
     def colorize_line(line)
       line = strip_ansi_colors(line)
-
-      case line
-      when REXP_REQUEST then colorize_request(line)
-      when REXP_CONTROLLER then colorize_controller(line)
-      when REXP_RENDER then colorize_render(line)
-      when REXP_RENDER_WITHIN then colorize_render_within(line)
-      when REXP_COMPLETE then colorize_complete(line)
-      when REXP_SQL_QUERY then colorize_sql_query(line)
-      else line
-      end
+      line = colorize(line)
     rescue => e
       puts "Could not colorize: #{e.message}"
       line
@@ -28,6 +19,18 @@ module Browserlog
 
     def strip_ansi_colors(line)
       line.gsub(/\e\[(\d+)m/, '')
+    end
+
+    def colorize(line)
+      case line
+      when REXP_REQUEST       then colorize_request(line)
+      when REXP_CONTROLLER    then colorize_controller(line)
+      when REXP_RENDER        then colorize_render(line)
+      when REXP_RENDER_WITHIN then colorize_render_within(line)
+      when REXP_COMPLETE      then colorize_complete(line)
+      when REXP_SQL_QUERY     then colorize_sql_query(line)
+      else line
+      end
     end
 
     def span(item, classname)
