@@ -74,7 +74,6 @@ module Browserlog
 
     def colorize_sql_query(line)
       data = regex_parse(line.match(REXP_SQL_QUERY))
-      path = data[:path]
       model_load = span(data[:model_load], 'model-load')
       rendering_time = span(data[:rendering_time], 'rendering-time')
       sql_query = data[:sql_query]
