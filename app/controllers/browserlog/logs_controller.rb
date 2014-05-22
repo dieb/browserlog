@@ -1,7 +1,6 @@
 module Browserlog
   class LogsController < ApplicationController
     before_filter :check_env
-    
     layout 'browserlog/application'
 
     def index
