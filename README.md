@@ -37,4 +37,5 @@ end
 With this setup 'logs/development', 'logs/production' and 'logs/test' are automatically available.
 
 ## Supported Rails Versions
+* Rails ~> 4.0.5
 * Rails ~> 4.1.0
