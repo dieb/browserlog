@@ -1,6 +1,8 @@
 module Browserlog
   class LogsController < ApplicationController
     before_filter :check_env
+    
+    layout 'application'
 
     def index
       @filename = "#{params[:env]}.log"
