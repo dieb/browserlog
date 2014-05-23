@@ -34,8 +34,7 @@ MyApp::Application.routes.draw do
 end
 ```
 
-With this setup 'logs/development', 'logs/production' and 'logs/test' are automatically available.
+With this setup ``logs/development``, ``logs/production`` and ``logs/test`` are automatically available on the browser.
 
 ## Supported Rails Versions
-* Rails ~> 4.0.5
-* Rails ~> 4.1.0
+* Rails ~> 4
