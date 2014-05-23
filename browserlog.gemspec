@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.email       = ['andre.dieb@gmail.com']
   s.homepage    = 'https://github.com/dieb/browserlog'
   s.summary     = 'Watch rails logs live on the browser.'
-  s.description = 'Watch rails logs live on the browser.'
+  s.description = 'Browserlog is a live web log viewer for rails apps.'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile',
