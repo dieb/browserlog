@@ -1,12 +1,11 @@
 # Browserlog
 
 [![Build Status](https://travis-ci.org/dieb/browserlog.svg?branch=master)](https://travis-ci.org/dieb/browserlog)
-[![Dependency Status](https://img.shields.io/gemnasium/dieb/browserlog.svg)][gemnasium]
+[![Dependency Status](https://www.versioneye.com/user/projects/5380ec4f14c158fd78000056/badge.svg)](https://www.versioneye.com/user/projects/5380ec4f14c158fd78000056)
 [![Code Climate](https://img.shields.io/codeclimate/github/dieb/browserlog.svg)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/dieb/browserlog/badge.png?branch=master)](https://coveralls.io/r/dieb/browserlog?branch=master)
 
 [travis]: http://travis-ci.org/dieb/browserlog
-[gemnasium]: https://gemnasium.com/dieb/browserlog
 [codeclimate]: https://codeclimate.com/github/dieb/browserlog
 [coveralls]: https://coveralls.io/r/dieb/browserlog
 
@@ -37,4 +36,4 @@ end
 With this setup ``logs/development``, ``logs/production`` and ``logs/test`` are automatically available on the browser.
 
 ## Supported Rails Versions
-* Rails ~> 4
+* Rails >= 3.2.18 and 4.1.1
