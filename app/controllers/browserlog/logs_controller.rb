@@ -38,9 +38,7 @@ module Browserlog
     end
 
     def check_auth
-      if Rails.env.production? and not Browserlog.config.allow_production_logs
-        fail "Logs not allowed on production environment."
-      end
+      fail 'Logs not allowed on production environment.' if Rails.env.production? && !Browserlog.config.allow_production_logs
     end
   end
 end
