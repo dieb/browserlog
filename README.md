@@ -35,5 +35,17 @@ end
 
 With this setup ``logs/development``, ``logs/production`` and ``logs/test`` are automatically available on the browser.
 
+## Note for production environments
+
+For most production environments, it's recommended to not serve logs without authentication. While an authentication scheme
+is not yet ready, this gem blocks by default any requests to ``logs/*`` in such production environment (i.e. ``RAILS_ENV=production``).
+
+In case you want to allow those logs to be displayed under production (e.g. staging servers), use the following initializer:
+
+```ruby
+# config/initializers/allow_logs_on_production.rb
+Browserlog.config.allow_production_logs = true
+```
+
 ## Supported Rails Versions
 * Rails >= 3.2.18 and 4.1.1

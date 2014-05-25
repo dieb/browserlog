@@ -1,6 +1,8 @@
 module Browserlog
   class LogsController < ApplicationController
     before_filter :check_env
+    before_filter :check_auth
+
     layout 'browserlog/application'
 
     def index
@@ -33,6 +35,12 @@ module Browserlog
 
     def check_env
       fail unless %w(test development production).include?(params[:env])
+    end
+
+    def check_auth
+      if Rails.env.production? and not Browserlog.config.allow_production_logs
+        fail "Logs not allowed on production environment."
+      end
     end
   end
 end
