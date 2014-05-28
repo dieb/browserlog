@@ -12,7 +12,7 @@ ParameterLists:
 
 MethodLength:
   CountComments: false
-  Max: 10
+  Max: 12
 
 ClassLength:
   CountComments: false
