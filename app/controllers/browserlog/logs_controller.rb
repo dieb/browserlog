@@ -34,7 +34,7 @@ module Browserlog
     end
 
     def check_env
-      fail unless %w(test development production).include?(params[:env])
+      fail unless %w(test development staging production).include?(params[:env])
     end
 
     def check_auth

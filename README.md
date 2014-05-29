@@ -33,7 +33,7 @@ MyApp::Application.routes.draw do
 end
 ```
 
-With this setup ``logs/development``, ``logs/production`` and ``logs/test`` are automatically available on the browser.
+With this setup ``logs/development``, ``logs/staging``, ``logs/production`` and ``logs/test`` are automatically available on the browser.
 
 ## Note for production environments
 
