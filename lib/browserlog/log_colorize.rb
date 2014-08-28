@@ -1,7 +1,7 @@
 module Browserlog
   class LogColorize
-    REXP_REQUEST    = /^Started (?<method>\w+) "(?<path>[\w\/\?\&\=\.]+)" for (?<ip>[\d\.]+) at (?<date>[\w+:\-\s]+)$/
-    REXP_CONTROLLER = /^Processing by (?<controller>[\w\:]+)#(?<action>\w+) as (?<format>\w+)$/
+    REXP_REQUEST    = /^Started (?<method>\w+) "(?<path>[\w\/\?\&\=\.]+)" for (?<ip>[\d\.]+) at (?<date>[\w:\-\+\s]+)$/
+    REXP_CONTROLLER = /^Processing by (?<controller>[\w\:]+)#(?<action>\w+) as (?<format>\[\w\/\-\.]+)$/
     REXP_RENDER     = /^\s*Rendered (?<path>.*\/)(?<template_name>\w+\.html\.\w+) \((?<rendering_time>[\d+\.]+ms)\)$/
     REXP_RENDER_WITHIN = /^\s*Rendered (?<path>.*\/)(?<template_name>\w+\.html\.\w+) within (?<layout_name>[\w\d\/]+) ?\((?<rendering_time>[\d+\.]+ms)\)$/
     REXP_COMPLETE   = /^Completed (?<status>\d+\s\w+) in (?<total_time>[\d+\.]+ms) (?<last_bit>.*)$/
