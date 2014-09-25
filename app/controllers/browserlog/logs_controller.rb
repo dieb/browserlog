@@ -16,7 +16,7 @@ module Browserlog
       respond_to do |format|
         format.json do
           render json: {
-            lines: lines.map! { |line| colorizer.colorize_line(line) } ,
+            lines: lines.map! { |line| colorizer.colorize_line(line) },
             last_line_number: last_line_number
           }
         end
