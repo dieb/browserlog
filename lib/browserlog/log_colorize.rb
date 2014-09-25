@@ -91,7 +91,7 @@ module Browserlog
     end
 
     def regex_parse(match)
-      Hash[match.names.collect { |k| k.to_sym }.zip(match.captures)]
+      Hash[match.names.collect(&:to_sym).zip(match.captures)]
     end
   end
 end
