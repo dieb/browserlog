@@ -14,7 +14,7 @@ require 'rspec/core/rake_task'
 
 begin
   require 'rubocop/rake_task'
-  Rubocop::RakeTask.new
+  RuboCop::RakeTask.new
 rescue LoadError
   desc 'Run RuboCop'
   task :rubocop do
