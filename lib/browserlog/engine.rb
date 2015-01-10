@@ -13,15 +13,15 @@ module Browserlog
     end
 
     def call(env)
-      case Rails.version
-      when /\A3/
+      case Rails::VERSION::MAJOR
+      when 3
         if SKIP_PATHS.any? { |path| env['PATH_INFO'].include?(path) } ||
           env['SCRIPT_NAME'] =~ /logs/
           silence { super }
         else
           super
         end
-      when /\A4/
+      when 4
         Rails.logger.silence { super }
       end
     end
