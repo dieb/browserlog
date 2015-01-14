@@ -53,10 +53,10 @@ module Browserlog
   end
 
   class SelectiveLogger < Rails::Rack::Logger
-    case Rails.version
-    when /\A3/
+    case Rails::VERSION::MAJOR
+    when 3
       include SelectiveLogger3
-    when /\A4/
+    when 4
       include SelectiveLogger4
     end
   end
