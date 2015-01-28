@@ -4,6 +4,7 @@ module Browserlog
       offset = options[:offset] || -1
       limit = options[:limit] || 25
       amount = [limit, remaining_lines(offset)].min
+      @log_file_name = options[:log_file_name] || 'development'
 
       if offset == -1
         line_index = num_lines
@@ -21,7 +22,7 @@ module Browserlog
     end
 
     def log_path
-      Rails.root.join("log/#{Rails.env}.log")
+      Rails.root.join("log/#{@log_file_name}.log")
     end
 
     def num_lines
