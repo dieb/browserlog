@@ -1,11 +1,10 @@
 module Browserlog
   class LogReader
     def read(options = {})
+      @log_file_name = options[:log_file_name] || 'development'
       offset = options[:offset] || -1
       limit = options[:limit] || 25
       amount = [limit, remaining_lines(offset)].min
-      @log_file_name = options[:log_file_name] || 'development'
-
       if offset == -1
         line_index = num_lines
         [readlines(amount), line_index]
