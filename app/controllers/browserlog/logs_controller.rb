@@ -11,7 +11,7 @@ module Browserlog
     end
 
     def changes
-      lines, last_line_number = reader.read(offset: params[:currentLine].to_i)
+      lines, last_line_number = reader.read(offset: params[:currentLine].to_i, log_file_name: params[:env])
 
       respond_to do |format|
         format.json do
@@ -34,7 +34,7 @@ module Browserlog
     end
 
     def check_env
-      fail unless %w(test development staging production).include?(params[:env])
+      fail unless Browserlog.config.allowed_log_files.include?(params[:env])
     end
 
     def check_auth

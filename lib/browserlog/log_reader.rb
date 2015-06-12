@@ -1,10 +1,10 @@
 module Browserlog
   class LogReader
     def read(options = {})
+      @log_file_name = options[:log_file_name] || 'development'
       offset = options[:offset] || -1
       limit = options[:limit] || 25
       amount = [limit, remaining_lines(offset)].min
-
       if offset == -1
         line_index = num_lines
         [readlines(amount), line_index]
@@ -21,7 +21,7 @@ module Browserlog
     end
 
     def log_path
-      Rails.root.join("log/#{Rails.env}.log")
+      Rails.root.join("log/#{@log_file_name}.log")
     end
 
     def num_lines
