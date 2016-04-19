@@ -9,7 +9,7 @@ require 'browserlog/version'
 Gem::Specification.new do |s|
   s.name        = 'browserlog'
   s.version     = Browserlog::VERSION
-  s.authors     = ['André Dieb Martins']
+  s.authors     = ['Andre Dieb Martins']
   s.email       = ['andre.dieb@gmail.com']
   s.homepage    = 'https://github.com/dieb/browserlog'
   s.summary     = 'Watch rails logs live on the browser.'
