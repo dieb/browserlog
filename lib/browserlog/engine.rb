@@ -16,7 +16,7 @@ module Browserlog
       case Rails::VERSION::MAJOR
       when 3
         if SKIP_PATHS.any? { |path| env['PATH_INFO'].include?(path) } ||
-          env['SCRIPT_NAME'] =~ /logs/
+           env['SCRIPT_NAME'] =~ /logs/
           silence { super }
         else
           super
@@ -26,10 +26,10 @@ module Browserlog
       end
     end
 
-    def silence(&block)
+    def silence
       prev = Rails.logger.level
       Rails.logger.level = 4
-      ret = block.call
+      ret = yield
       Rails.logger.level = prev
       ret
     end

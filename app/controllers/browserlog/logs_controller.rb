@@ -34,11 +34,11 @@ module Browserlog
     end
 
     def check_env
-      fail unless Browserlog.config.allowed_log_files.include?(params[:env])
+      raise unless Browserlog.config.allowed_log_files.include?(params[:env])
     end
 
     def check_auth
-      fail 'Logs not allowed on production environment.' if Rails.env.production? && !Browserlog.config.allow_production_logs
+      raise 'Logs not allowed on production environment.' if Rails.env.production? && !Browserlog.config.allow_production_logs
     end
   end
 end

@@ -5,13 +5,10 @@ module Browserlog
       offset = options[:offset] || -1
       limit = options[:limit] || 25
       amount = [limit, remaining_lines(offset)].min
-      if offset == -1
-        line_index = num_lines
-        [readlines(amount), line_index]
-      else
-        line_index = offset + amount
-        [readlines(amount), line_index]
-      end
+
+      line_index = offset == -1 ? num_lines : offset + amount
+
+      [readlines(amount), line_index]
     end
 
     private

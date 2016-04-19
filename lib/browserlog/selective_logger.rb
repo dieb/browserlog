@@ -3,9 +3,7 @@ module Browserlog
 
   module SelectiveLogger3
     def call_app(request, env)
-      if SKIP_PATHS.any? { |path| env['PATH_INFO'].include?(path) }
-        @app.call(env)
-      else
+      unless SKIP_PATHS.any? { |path| env['PATH_INFO'].include?(path) }
         # Put some space between requests in development logs.
         if Rails.env.development?
           Rails.logger.info ''
@@ -13,8 +11,9 @@ module Browserlog
         end
 
         Rails.logger.info started_request_message(request)
-        @app.call(env)
       end
+
+      @app.call(env)
     ensure
       ActiveSupport::LogSubscriber.flush_all!
     end
