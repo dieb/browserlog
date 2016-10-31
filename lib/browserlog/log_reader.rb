@@ -14,7 +14,7 @@ module Browserlog
     private
 
     def remaining_lines(offset)
-      (offset == -1) ? num_lines : (num_lines - offset)
+      offset == -1 ? num_lines : (num_lines - offset)
     end
 
     def log_path
