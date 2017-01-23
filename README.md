@@ -1,3 +1,7 @@
+## Project status
+
+This project has been archived and its development halted. I don't have much interest in maintaining it anymore. Feel free to fork and have fun :)
+
 # Browserlog
 
 [![Build Status](https://travis-ci.org/dieb/browserlog.svg?branch=master)](https://travis-ci.org/dieb/browserlog)
@@ -16,10 +20,6 @@ Browserlog is a live web log viewer for rails apps.
 
 ## Features
 * Auto-refresh
-
-## Project status
-
-This project has been archived and its development halted. I don't have much interest anymore in maintaining it. Feel free to fork and make sure to have fun :)
 
 ## Installation
 
